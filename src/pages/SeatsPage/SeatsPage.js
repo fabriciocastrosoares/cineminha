@@ -35,7 +35,7 @@ export default function SeatsPage() {
 
                 CPF do Comprador:
                 <input placeholder="Digite seu CPF..." />
-
+                
                 <button>Reservar Assento(s)</button>
             </FormContainer>
 

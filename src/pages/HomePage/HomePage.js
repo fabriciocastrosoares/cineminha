@@ -1,28 +1,27 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
+import filmes from "../../constants/filmes"
+import { useState } from "react"
 
-export default function HomePage() {
+
+
+export default function HomePage({setNomeFilme, setPosterFilme}) {
     return (
         <PageContainer>
-            Selecione o filme
-
-            <ListContainer>
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-            </ListContainer>
-
+            Selecione o Filme
+           
+                <ListContainer>
+                 
+                    {filmes. map((f) => 
+                        <MovieContainer key={f.id}>
+                            <Link to = "/sessoes">
+                                <img src={f.posterURL} alt="poster"/>
+                            </Link>
+                        </MovieContainer>
+                    )}
+                
+                </ListContainer>
+            
         </PageContainer>
     )
 }
@@ -57,5 +56,6 @@ const MovieContainer = styled.div`
     img {
         width: 130px;
         height: 190px;
+        cursor: pointer;
     }
 `
